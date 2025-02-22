@@ -1,0 +1,245 @@
+.body{
+    background-color: #60603c;
+    margin: 0px;
+}
+
+
+.header{
+    position: relative;
+    z-index: 2;
+    box-shadow: 0 20px 20px rgba(0, 0, 0, 0.5);
+    background-color: #d1cdc4;
+    display: flex;
+    width: 100%;
+    height: 100px;
+    align-items: center;
+    justify-content: center;
+}
+.headerTitle{
+    display: flex;
+}
+.headerTitleText{
+    font-size: 3vw;
+    letter-spacing: 3vw;
+    color: #c3803a;
+    font-weight: 700;
+    text-shadow: 5px 5px 0px rgb(0,0,0,0.3);
+}
+
+
+.imageDiv{
+    display: flex;
+    height: 600px;
+    position: relative;
+    z-index: 1;
+}
+
+
+.textOverlay{
+    display: grid;
+    position: absolute;
+    height: 100%;
+    align-items: center;
+    width: auto;
+    margin-left: 5%;
+}
+.overlayHead{
+    display: block;
+}
+.textOverlayTextH{
+    font-size: 5vw;
+    font-weight: 500;
+    color: #d1cdc4;
+    letter-spacing: 13px;
+}
+.textOverlayTextB{
+    font-size: 1vw;
+    font-weight: 500;
+    color: #bf5d30;
+    text-shadow: 0px 0px 6px rgb(0, 0, 0);
+    letter-spacing: 13px;
+}
+
+
+.buttonOverlay{
+    position: absolute;
+    display: flex;
+    height: 100%;
+    align-items: center;
+    left: 70%;
+}
+.startButton{
+    font-family: "Titillium Web", sans-serif;
+    font-size: 3vw;
+    font-weight: 100;
+    color:#d1cdc4;
+    text-decoration: none;
+    padding: 10px 20px;
+    border-width: 0px;
+    transition: background-color 0.3s, color 0.4s, border-color 0.3s;
+}
+.startButton:hover{
+    background-color: #d1cdc4;
+    color:#60603c;
+    border-color: #60603c;
+}
+
+
+.bodyContent{
+    position: relative;
+    z-index: 2;
+    box-shadow: 0 -20px 20px rgba(0, 0, 0, 0.5);
+    box-shadow: 0 20px 20px rgba(0, 0, 0, 0.2);
+    display: flex;
+    height: 100%;
+    width: 100%;
+    background-color: #d1cdc4;
+}
+.Content{
+    display:grid;
+    align-items: center;
+    width: 100%;
+    height: 100%;
+}
+
+
+.contentTitle{
+    padding-top: 5%;    
+    padding-left: 4%;
+    font-size: 4vw;
+    color:#bf5d30;
+    font-weight: 100;
+    text-shadow: 0px 0px 9px rgb(0,0,0,0.3);
+}
+.contentBody{
+    color: rgb(0, 0, 0, 0.7);
+    padding: 5% 10% 7% 6%;
+    font-weight: 400;
+    text-align: justify;
+    font-size: 1.3vw;
+    letter-spacing: 3px;
+}
+
+
+.navigationBar{
+    display:flex;
+    height: auto;
+    width: 39%;
+    background-color: #79402d;
+    justify-content: center;
+    align-items: center;
+}
+.navigationBar nav{
+    display: grid;
+    width: 100%;
+    height: 100%;
+    align-items:center;
+}
+.navButtons{
+    width: 100%;
+    font-family: "Titillium Web", sans-serif;
+    color: rgba(0,0,0,0.4);
+    display:flex;
+    padding-top: 8%;
+    padding-bottom: 8%;
+    padding-left: 5%;
+    font-size: 1.7vw;
+    text-decoration: none;
+    transition: color 0.4s, background-color 0.3s;
+    box-sizing: border-box;
+}
+.navButtons:hover{
+    color: #d1cdc4;
+    background-color: #bf5d30;
+}
+
+
+.socialsTab{
+    width: 100%;
+    height: 100%;
+    background-color:#60603c;
+    text-align: center;
+}
+.socialsTab h1{
+    color: #d1cdc4;
+    font-size: 3.3vw;
+    font-weight: 300;
+    padding-top: 1%;
+}
+.socialsDisplay{
+    display:flex;
+    height: 100%;
+    width: 100%;
+    justify-content: space-evenly;
+}
+.socialsDisplay nav{
+    padding-top: 2%;
+    padding-bottom: 6%;
+    display:flex;
+    justify-content: space-evenly;
+    gap: 300px;
+}
+.fbButton{
+    width: 200px;
+    height: 200px;
+    background-image: url(/images/buttons/FacebookOff.png);
+    background-size: cover;
+    transition: background-image 0.3s;
+}
+.fbButton:hover{
+    background-image: url(/images/buttons/FacebookOn.png);
+}
+.XButton{
+    width: 200px;
+    height: 200px;
+    background-image: url(/images/buttons/TwitterOff.png);
+    background-size: cover;
+    transition: background-image 0.3s;
+}
+.XButton:hover{
+    background-image: url(/images/buttons/TwitterOn.png);
+}
+.ytButton{
+    width: 200px;
+    height: 200px;
+    background-image: url(/images/buttons/YoutubeOff.png);
+    background-size: cover;
+    transition: background-image 0.3s;
+}
+.ytButton:hover{
+    background-image: url(/images/buttons/YoutubeOn.png);
+}
+
+.footer{
+    display:flex;
+    justify-content: center;
+    background-color:#d1cdc4;
+    align-items: center;
+}
+
+.footer p{
+    font-size: 1vw;
+}
+
+.footer img{
+    padding-left: 1%;
+    padding-top: 5px;
+    padding-bottom: 5px;
+    height: 2vw;
+}
+
+
+h1{
+    font-family: "Titillium Web", sans-serif;
+    font-weight: 500;
+    font-style: normal;
+    margin: 0px;
+    letter-spacing: 10px;
+}
+
+p{
+    font-family: "Titillium Web", sans-serif;
+    font-weight: 200;
+    font-style: normal;
+    margin: 0px;
+}
