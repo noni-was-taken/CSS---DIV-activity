@@ -1,0 +1,117 @@
+body{
+    background-color: #60603c;
+    margin: 0px;
+}
+
+h1{
+    font-family: "Titillium Web", sans-serif;
+    font-weight: 500;
+    font-style: normal;
+    margin: 0px;
+    letter-spacing: 10px;
+}
+
+p{
+    font-family: "Titillium Web", sans-serif;
+    font-weight: 200;
+    font-style: normal;
+    margin: 0px;
+}
+
+.header{
+    position: relative;
+    z-index: 2;
+    box-shadow: 0 13px 13px rgba(0, 0, 0, 0.5);
+    background-color: #d1cdc4;
+    display: flex;
+    width: 100%;
+    height: 100px;
+    align-items: center;
+    justify-content: space-around;
+    gap: 22%;
+}
+.header h1{
+    font-size: 3vw;
+    letter-spacing: 3vw;
+    color: #c3803a;
+    font-weight: 300;
+    text-shadow: 4px 4px 0px rgb(0,0,0,0.3);
+}
+
+
+.navigation{
+    display: flex;
+    width: auto;
+    height: auto;
+}
+.navigation nav{
+    display: flex;
+    gap: 44px;
+}
+.navigation nav a{
+    font-family: "Titillium Web", sans-serif;
+    font-weight: 300;
+    font-size: 1.3vw;
+    color: #c3803a;
+    text-decoration: none;
+    padding: 31px 21px;
+    transition: background-color 0.4s, color 0.4s;
+}
+.navigation nav a:hover{
+    background-color: rgba(0,0,0,0.4);
+    color: #d1cdc4;
+}
+
+.background{
+    position: relative;
+    display: flex;
+    z-index: 1;
+    background-image: url(/images/Gallery/GalleryBackground.png);
+    background-repeat: no-repeat;
+    background-position: center;
+    background-size: cover;
+    width: auto;
+    height: 1500px; /* size is temporary */
+    align-items: center;
+    justify-content: space-around;
+    gap: 0%;
+}
+.background div p{
+    color: #d1cdc4;
+    font-size: 2.9vw;
+}
+
+.mapViewer{
+    display: flex;
+    height: 100%;
+    width: 650px;
+    background-color: rgba(0, 0, 0, 0.5);
+    justify-content: center;
+    align-items: center;
+}
+
+.flavorText{
+    display: flex;
+    height: 100%;
+    width: 650px;
+    background-color: rgba(0, 0, 0, 0.5);
+    justify-content: center;
+    align-items: center;
+}
+
+
+.footer{
+    display:flex;
+    justify-content: center;
+    background-color:#d1cdc4;
+    align-items: center;
+}
+.footer p{
+    font-size: 1vw;
+}
+.footer img{
+    padding-left: 1%;
+    padding-top: 5px;
+    padding-bottom: 5px;
+    height: 2vw;
+}
