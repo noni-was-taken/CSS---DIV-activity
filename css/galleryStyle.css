@@ -62,33 +62,78 @@ p{
     color: #d1cdc4;
 }
 
-.background{
+
+.background {
     position: relative;
     display: flex;
-    z-index: 1;
-    background-image: url(/images/Gallery/GalleryBackground.png);
-    background-repeat: no-repeat;
-    background-position: center;
-    background-size: cover;
-    width: auto;
-    height: 1500px; /* size is temporary */
+    width: 100%;
+    height: 1100px; /* Adjust as needed */
     align-items: center;
     justify-content: space-around;
     gap: 0%;
+    overflow: hidden;
 }
-.background div p{
+.background p{
+    font-size: 3vw;
     color: #d1cdc4;
-    font-size: 2.9vw;
 }
+.background-image {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    z-index: -1;
+    transition: filter 0.3s ease;
+}
+.background-image.blur {
+    filter: blur(5px);
+}
+
 
 .mapViewer{
     display: flex;
     height: 100%;
-    width: 650px;
-    background-color: rgba(0, 0, 0, 0.5);
+    width: 800px;
+    justify-content: center;
+    flex-direction: column;
+}
+.mapViewer h1{
+    text-align: center;
+    margin-top: 50px;
+    width: 100%;
+    font-weight: 600;
+    font-size: 5vw;
+    color: #d1cdc4;
+    text-shadow: 3px 3px 0px rgba(195, 128, 58, 0.3);
+    margin-bottom: 40px;
+    transition: text-shadow 0.3s;
+}
+.mapViewer h1.glow{
+    text-shadow: 0px 0px 20px rgba(255, 255, 255, 0.8);
+}
+
+.phSH{
+    perspective: 1000px;
+    display: flex;
     justify-content: center;
     align-items: center;
+    width: 100%;
+    height: auto;
+    margin-top: 20px;
+    margin-bottom: 150px;
 }
+
+#silhouette {
+    width: 750px;
+    height: auto;
+    transition: transform 0.1s;
+    transform-style: preserve-3d;
+    cursor: pointer;
+    filter: drop-shadow(0 10px 20px rgba(0,0,0,0.3));
+}
+
 
 .flavorText{
     display: flex;
