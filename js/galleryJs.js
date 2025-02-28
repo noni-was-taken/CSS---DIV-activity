@@ -2,11 +2,13 @@ const silhouette = document.getElementById('silhouette');
 const mapViewerH1 = document.querySelector('.mapViewer h1');
 const backgroundImage = document.querySelector('.background-image');
 const pins = document.querySelectorAll('.pin');
+const hoverDetector = document.querySelector('.hover-detector');
+const mapNavLinks = document.querySelectorAll('.mapNavigation nav a');
 
-let isHovered = false; // Track if the map is hovered
-let animationFrameId = null; // Track the animation frame ID
+let isHovered = false;
+let animationFrameId = null;
+let activePin = null;
 
-// Function to update map transformation
 function updateTransformations(e) {
     const rect = silhouette.getBoundingClientRect();
     const mouseY = e.clientX - rect.left - rect.width / 2;
@@ -16,7 +18,6 @@ function updateTransformations(e) {
     const rotateY = -(mouseY / rect.height) * 10;
     const scale = 1.1;
 
-    // Apply transformation to the map
     silhouette.style.transform = `
         perspective(1000px)
         rotateX(${rotateX}deg)
@@ -24,7 +25,6 @@ function updateTransformations(e) {
         scale(${scale})
     `;
 
-    // Add glow and blur effects
     const shadowX = (mouseX / rect.width) * 20;
     const shadowY = (mouseY / rect.height) * 20;
     silhouette.style.filter = `drop-shadow(${shadowX}px ${shadowY}px 20px rgba(255, 255, 255, 0.3))`;
@@ -32,13 +32,12 @@ function updateTransformations(e) {
     mapViewerH1.classList.add('glow');
     backgroundImage.classList.add('blur');
 
-    // Add hovered class to pins
     pins.forEach(pin => {
         pin.classList.add('hovered');
     });
 }
 
-// Function to reset transformations
+
 function resetTransformations() {
     silhouette.style.transform = 'rotateX(0deg) rotateY(0deg) scale(1)';
     silhouette.style.filter = 'drop-shadow(0 10px 20px rgba(255, 255, 255, 0.1))';
@@ -52,12 +51,12 @@ function resetTransformations() {
     });
 }
 
-// Throttle the mousemove event using requestAnimationFrame
+
 function handleMousemove(e) {
-    if (!isHovered) return; // Only update if the map is hovered
+    if (!isHovered) return;
 
     if (animationFrameId) {
-        cancelAnimationFrame(animationFrameId); // Cancel the previous frame
+        cancelAnimationFrame(animationFrameId);
     }
 
     animationFrameId = requestAnimationFrame(() => {
@@ -65,40 +64,44 @@ function handleMousemove(e) {
     });
 }
 
-// Add mousemove event to the map
-silhouette.addEventListener('mousemove', handleMousemove);
 
-// Track hover state
-silhouette.addEventListener('mouseenter', () => {
+hoverDetector.addEventListener('mousemove', handleMousemove);
+
+
+hoverDetector.addEventListener('mouseenter', () => {
     isHovered = true;
 });
 
-silhouette.addEventListener('mouseleave', () => {
+hoverDetector.addEventListener('mouseleave', () => {
     isHovered = false;
     resetTransformations();
 });
 
-// Pin click functionality
+
+function togglePin(pinIndex) {
+    const pin = pins[pinIndex];
+    const pinImage = pin.querySelector('img');
+
+    if (activePin && activePin !== pinImage) {
+        const offSrc = activePin.getAttribute('data-off');
+        activePin.src = offSrc;
+        activePin.classList.remove('active');
+    }
+
+    const currentSrc = pinImage.getAttribute('src');
+    const onSrc = pinImage.getAttribute('data-on');
+    const offSrc = pinImage.getAttribute('data-off');
+    pinImage.src = currentSrc === offSrc ? onSrc : offSrc;
+    pinImage.classList.toggle('active');
+
+    activePin = currentSrc === offSrc ? pinImage : null;
+}
+
 document.addEventListener('DOMContentLoaded', function() {
-    let activePin = null; // Track the currently active pin
-
-    pins.forEach(pin => {
-        const pinImage = pin.querySelector('img');
-        pinImage.addEventListener('click', function() {
-            // If there's an active pin, turn it off
-            if (activePin && activePin !== pinImage) {
-                const offSrc = activePin.getAttribute('data-off');
-                activePin.src = offSrc;
-            }
-
-            // Toggle the clicked pin
-            const currentSrc = pinImage.getAttribute('src');
-            const onSrc = pinImage.getAttribute('data-on');
-            const offSrc = pinImage.getAttribute('data-off');
-            pinImage.src = currentSrc === offSrc ? onSrc : offSrc;
-
-            // Update the active pin
-            activePin = currentSrc === offSrc ? pinImage : null;
+    mapNavLinks.forEach((link, index) => {
+        link.addEventListener('click', function(e) {
+            e.preventDefault();
+            togglePin(index);
         });
     });
 });
