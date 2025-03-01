@@ -11,6 +11,7 @@
         </title>
         <link rel="stylesheet" href="/css/galleryStyle.css">
     </head>
+
     <body>
         <div class="header">
             <h1>
@@ -30,19 +31,59 @@
             <img src="/images/Gallery/GalleryBackground.png" alt="Background Image" class="background-image">
             <div class="mapViewer">
                 <h1>
-                    LETS EXPLORE!
+                    GALLERY
                 </h1>
                 <div class= "phSH">
-                    <img src="/images/Gallery/phSh.png" alt="PH Silhouette" id="silhouette">
+                    
+                        <img src="/images/Gallery/phSh.png" alt="PH Silhouette" id="silhouette">
+
+                        <div class="pin" id="pin1" style="top: 28%; left: 46%;">
+                            <img src="/images/Gallery/MapPinOff.png" alt="Pin 1 Off" data-on="/images/Gallery/MapPinOn.png" data-off="/images/Gallery/MapPinOff.png">
+                        </div>
+                        <div class="pin" id="pin2" style="top: 55%; left: 63%;">
+                            <img src="/images/Gallery/MapPinOff.png" alt="Pin 2 Off" data-on="/images/Gallery/MapPinOn.png" data-off="/images/Gallery/MapPinOff.png">
+                        </div>
+                        <div class="pin" id="pin3" style="top: 57%; left: 30%;">
+                            <img src="/images/Gallery/MapPinOff.png" alt="Pin 3 Off" data-on="/images/Gallery/MapPinOn.png" data-off="/images/Gallery/MapPinOff.png">
+                        </div>
+
+                        <div class="hover-detector"></div>
+                </div>
+
+                <div class="mapNavigation">
+                    <nav>
+                        <a href="#" data-pin-index="0" data-location="Manila">Manila</a>
+                        <a href="#" data-pin-index="1" data-location="Cebu">Cebu</a>
+                        <a href="#" data-pin-index="2" data-location="Palawan">Palawan</a>
+                    </nav>
                 </div>
             </div>
             <div class= "flavorText">
-                <p> 
-                    FLAVOR TEXT
-                </p>
+                <div class="locationH">
+                    <h1>
+                        LOCATION
+                    </h1>
+                </div>
+                <div class="content">
+                    <p>
+                        Lorem ipsum dolor sit amet, consectetur adipiscing elit. Etiam eget tristique mauris. Fusce ac ex sollicitudin, auctor sapien sit amet, posuere elit. Integer faucibus commodo dictum.<br><br> Pellentesque porta lorem est, ac feugiat metus posuere at. Aliquam eu lectus et odio interdum euismod. Nunc blandit erat eu facilisis finibus. Aliquam eu feugiat.
+                    </p>
+                </div class="showGallery">
+                <div class="explore">
+                    <a>
+                        > EXPLORE
+                    </a>
+                </div>
             </div>
         </div>
 
+        <div id="overlay" class="overlay">
+            <div id="carousel" class="carousel">
+                <button id="prevButton" class="carousel-button">&#10094;</button>
+                <div id="carouselImages" class="carousel-images"></div>
+                <button id="nextButton" class="carousel-button">&#10095;</button>
+            </div>
+        </div>
 
         <div class="footer">
             <p>
@@ -50,8 +91,6 @@
             </p>
             <img src="/images/USC Logo.png" alt="USC logo">
         </div>
-
-
         <script src="/js/galleryJs.js"></script>
     </body>
 </html>

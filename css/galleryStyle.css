@@ -67,10 +67,10 @@ p{
     position: relative;
     display: flex;
     width: 100%;
-    height: 1100px; /* Adjust as needed */
+    height: 130vh;
     align-items: center;
-    justify-content: space-around;
-    gap: 0%;
+    justify-content: center;
+    gap: 1%;
     overflow: hidden;
 }
 .background p{
@@ -103,16 +103,17 @@ p{
     text-align: center;
     margin-top: 50px;
     width: 100%;
-    font-weight: 600;
+    font-weight: 200;
     font-size: 5vw;
     color: #d1cdc4;
-    text-shadow: 3px 3px 0px rgba(195, 128, 58, 0.3);
+    text-shadow: 0 0 20px rgba(0,0,0,0.5);
     margin-bottom: 40px;
     transition: text-shadow 0.3s;
 }
 .mapViewer h1.glow{
     text-shadow: 0px 0px 20px rgba(255, 255, 255, 0.8);
 }
+
 
 .phSH{
     perspective: 1000px;
@@ -122,9 +123,8 @@ p{
     width: 100%;
     height: auto;
     margin-top: 20px;
-    margin-bottom: 150px;
+    margin-bottom: 47px;
 }
-
 #silhouette {
     width: 750px;
     height: auto;
@@ -133,20 +133,205 @@ p{
     cursor: pointer;
     filter: drop-shadow(0 10px 20px rgba(0,0,0,0.3));
 }
+.hover-detector {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    z-index: 10;
+    cursor:default;
+    background-color: transparent;
+}
+
+.pin {
+    position: absolute;
+    cursor: pointer;
+    z-index: 2;
+    transform-style: preserve-3d;
+}
+.pin img {
+    width: 50px;
+    height: auto;
+    transition: transform 0.2s ease, filter 0.3s ease, opacity 0.3s ease;
+    opacity: 0.8;
+}
+.pin img.active{
+    opacity: 1;
+    filter: drop-shadow(0 0 10px rgba(255,128,0,0.8));
+    transform: scale(1.2);
+}
+.pin.hovered img {
+    filter: drop-shadow(0 0 10px rgba(255, 128, 0, 0.8));
+    width: 70px;
+    transition: filter 0.3s ease, width 0.3s ease;
+
+}
+
+.mapNavigation{
+    display: flex;
+    justify-content: center;   
+    height: auto;
+    width: 100%;
+    padding-bottom: 10%;
+}
+.mapNavigation nav{
+    display: flex;
+    width: 100%;
+}
+.mapNavigation nav a{
+    flex: 1;
+    min-width: 0;
+    padding: 5px 40px;
+    text-align: center;
+    background-color: #c3803a;
+    font-family: "Titillium Web", sans-serif;
+    font-weight: 300;
+    color: #d1cdc4;
+    text-decoration: none;
+    font-size: 1.7vw;
+    transition: box-shadow 0.3s ease;    
+}
+.mapNavigation nav a:hover{
+    transition: background-color 0.3s ease, color 0.3s ease;
+    background-color: #d1cdc4;
+    color: #60603c;
+}
+.mapNavigation nav a.glow{
+    box-shadow: 0 0 10px rgba(255, 128, 0, 0.8);
+}
+
 
 
 .flavorText{
     display: flex;
     height: 100%;
-    width: 650px;
-    background-color: rgba(0, 0, 0, 0.5);
-    justify-content: center;
-    align-items: center;
+    width: 50vw;
+    font-size: 1.4vw;
+    align-items: left;
+    flex-direction: column;
+}
+.flavorText div{
+    margin-left: 15%;
+}
+.locationH{
+    margin-top: 25%;
+    margin-bottom: 1%;
+    display: flex;
+    width: 100%;
+    height: auto;
+}
+.locationH h1{
+    font-size: 12.3vh;
+    font-weight: 500;
+    color: #d1cdc4;
+    text-shadow: 0 0 20px rgba(0,0,0,0.5);
+    transition: text-shadow 0.3s ease, opacity 0.3s ease;
+}
+.locationH h1.glow{
+    text-shadow: 0 0 20px rgba(255, 255, 255, 1);
+}
+.content{
+    display: flex;
+    width: 71%;
+    height: auto;
+}
+.content p{
+    padding-left: 8%;
+    font-weight: 300;
+    font-size: 3vh;
+    text-align: justify;
+    text-shadow: 0 0 20px rgba(0,0,0,0.6);
+    transition: text-shadow 0.3s ease;
+}
+.content p.glow{
+    text-shadow: 0 0 20px rgba(255, 255, 255, 1);
+}
+.explore{
+    display: flex;
+    margin-top: 5%;
+}
+.explore a{
+    font-size: 2.7vw;
+    font-weight: 100;
+    font-family: "Titillium Web", sans-serif;
+    padding: 10px 49px;
+    background-color: #c3803a;
+    color: #d1cdc4;
+    cursor: pointer;
+    transition: box-shadow 0.3s ease; 
+}
+.explore a:hover{
+    transition: background-color 0.3s ease, color 0.3s ease;
+    background-color: #d1cdc4;
+    color: #60603c;
+}
+.explore a.glow{
+    box-shadow: 0 0 10px rgba(255, 128, 0, 0.8);
 }
 
 
+.overlay {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background-color: rgba(0, 0, 0, 0.8);
+    backdrop-filter: blur(10px);
+    display: none;
+    justify-content: center;
+    align-items: center;
+    z-index: 1000;
+    opacity: 0;
+    transition: opacity 0.5s ease;
+}
+.carousel {
+    position: relative;
+    height: 85vh;
+    width: 100%;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+}
+.carousel-images {
+    width: 100%;
+    height: 100%;
+    display: flex;
+    overflow: hidden;
+    position: relative;
+}
+.carousel-images img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    position: absolute;
+    top: 0;
+    left: 0;
+    opacity: 0;
+    transition: opacity 0.5s ease;
+}
+.carousel-images img.active {
+    opacity: 1;
+}
+.carousel-button {
+    margin: 0px 9px;
+    background-color: rgba(0, 0, 0, 0);
+    border: none;
+    color: white;
+    font-family: "Titillium Web", sans-serif;
+    font-weight: 100;
+    font-size: 5vh;
+    padding: 10px;
+    cursor: pointer;
+    z-index: 1001;
+}
+.carousel-button:hover {
+    background-color: rgba(0, 0, 0, 0.8);
+}
+
 .footer{
-    display:flex;
+    display: flex;
     justify-content: center;
     background-color:#d1cdc4;
     align-items: center;
