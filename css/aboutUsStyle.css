@@ -125,7 +125,7 @@ p{
     z-index: -1;
     object-fit: cover;
     position: absolute;
-    object-position: 0% 40%;
+    object-position: 0% 52%;
     filter: brightness(50%);
 }
 .mission, .vision{
